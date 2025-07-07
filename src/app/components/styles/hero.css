@@ -170,9 +170,18 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-4xl);
     text-align: center;
+  }
+
+  .hero-text {
+    order: 1;
+  }
+  .hero-gallery {
+    order: 2;
+    margin-bottom: var(--spacing-4xl);
   }
 
   .hero-cta {
@@ -216,6 +225,15 @@
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  .hero-text {
+    order: 1;
+  }
+  .hero-gallery {
+    order: 2;
+  }
   .hero {
     padding-left: var(--spacing-lg);
     padding-right: var(--spacing-lg);
@@ -268,6 +286,15 @@
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  .hero-text {
+    order: 1;
+  }
+  .hero-gallery {
+    order: 2;
+  }
   .hero {
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
