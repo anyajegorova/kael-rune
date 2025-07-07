@@ -22,9 +22,6 @@ const ebGaramond = EB_Garamond({
 export const metadata: Metadata = {
   title: "Kael Rune - Photography",
   description: "Capturing Moments, Creating Stories",
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
