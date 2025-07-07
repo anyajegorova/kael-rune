@@ -11,47 +11,44 @@
   padding: 0 var(--spacing-lg);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--spacing-lg);
-  grid-auto-rows: 250px;
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
 
-/* Gallery item variations */
+/* Create four equal columns that sit next to each other */
+.gallery-column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
 .gallery-item {
   position: relative;
   overflow: hidden;
+  margin-top: 8px;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .gallery-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Aspect ratio variations */
-.gallery-item.wide {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-.gallery-item.tall {
-  grid-column: span 1;
-  grid-row: span 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Image wrapper and styling */
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
   overflow: hidden;
+  display: block;
 }
 
 .gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -92,19 +89,19 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive design */
-@media (max-width: 1200px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .gallery-column {
+    flex: 50%;
+    max-width: 50%;
   }
-  
-  .gallery-item.wide {
-    grid-column: span 1;
-  }
-  
-  .gallery-item.tall {
-    grid-row: span 1;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .gallery-column {
+    flex: 100%;
+    max-width: 100%;
   }
 }
 
@@ -115,18 +112,6 @@
   
   .gallery-container {
     padding: 0 var(--spacing-md);
-  }
-  
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-    grid-auto-rows: 280px;
-  }
-  
-  .gallery-item.wide,
-  .gallery-item.tall {
-    grid-column: span 1;
-    grid-row: span 1;
   }
   
   .image-overlay {
@@ -142,11 +127,6 @@
 @media (max-width: 480px) {
   .gallery-container {
     padding: 0 var(--spacing-sm);
-  }
-  
-  .gallery-grid {
-    gap: var(--spacing-sm);
-    grid-auto-rows: 250px;
   }
   
   .image-overlay {
