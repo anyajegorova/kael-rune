@@ -1,0 +1,210 @@
+.work-page {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Gallery Section */
+.work-cta {
+  padding: var(--spacing-5xl) 0;
+  background: var(--rich-black);
+  color: var(--soft-white);
+  text-align: center;
+}
+
+.work-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.work-cta-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 300;
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--line-height-snug);
+  color: var(--soft-white);
+}
+
+.work-cta-description {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--ash-gray);
+  margin-bottom: var(--spacing-2xl);
+  font-weight: 300;
+}
+
+.work-cta-button {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background: transparent;
+  color: var(--soft-white);
+  border: 2px solid var(--soft-white);
+  border-radius: 0;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--soft-white);
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.work-cta-button:hover::before {
+  left: 0;
+}
+
+.work-cta-button:hover {
+  color: var(--rich-black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(250, 250, 250, 0.2);
+}
+
+.work-cta-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gallery Section */
+.gallery-section {
+  background: var(--background);
+}
+
+.gallery-header {
+  text-align: center;
+  padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-2xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+  color: var(--foreground);
+  position: relative;
+}
+
+.gallery-title::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--charcoal);
+}
+
+.gallery-subtitle {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .work-page {
+    padding-top: 75px; /* Slightly smaller navbar on tablets */
+  }
+  
+  .gallery-header {
+    padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-xl);
+  }
+  
+  .gallery-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .gallery-subtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 768px) {
+  .work-page {
+    padding-top: 70px; /* Smaller navbar on mobile */
+  }
+  
+  .gallery-header {
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .gallery-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .gallery-subtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .work-cta {
+    padding: var(--spacing-4xl) 0;
+  }
+  
+  .work-cta-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .work-cta-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .work-cta-description {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .work-cta-button {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .work-page {
+    padding-top: 65px; /* Smallest navbar on small mobile */
+  }
+  
+  .gallery-header {
+    padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .gallery-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .gallery-subtitle {
+    font-size: var(--font-size-xs);
+  }
+  
+  .work-cta {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .work-cta-content {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .work-cta-title {
+    font-size: var(--font-size-xl);
+  }
+}
