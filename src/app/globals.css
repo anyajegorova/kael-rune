@@ -84,6 +84,48 @@ a {
   text-decoration: none;
 }
 
+/* Global Text Selection Styling */
+::selection {
+  background: var(--rich-black);
+  color: var(--soft-white);
+}
+
+::-moz-selection {
+  background: var(--rich-black);
+  color: var(--soft-white);
+}
+
+/* For elements with light text (soft-white, silver-fog, ash-gray) */
+.text-light ::selection,
+.nav.dark ::selection,
+.footer ::selection,
+.footer * ::selection,
+.hero-description ::selection,
+[style*="color: var(--soft-white)"] ::selection,
+[style*="color: #fafafa"] ::selection,
+[style*="color: var(--silver-fog)"] ::selection,
+[style*="color: #e1e1e1"] ::selection,
+[style*="color: var(--ash-gray)"] ::selection,
+[style*="color: #b3b3b3"] ::selection {
+  background: var(--soft-white);
+  color: var(--rich-black);
+}
+
+.text-light ::-moz-selection,
+.nav.dark ::-moz-selection,
+.footer ::-moz-selection,
+.footer * ::-moz-selection,
+.hero-description ::-moz-selection,
+[style*="color: var(--soft-white)"] ::-moz-selection,
+[style*="color: #fafafa"] ::-moz-selection,
+[style*="color: var(--silver-fog)"] ::-moz-selection,
+[style*="color: #e1e1e1"] ::-moz-selection,
+[style*="color: var(--ash-gray)"] ::-moz-selection,
+[style*="color: #b3b3b3"] ::-moz-selection {
+  background: var(--soft-white);
+  color: var(--rich-black);
+}
+
 /* Typography Utility Classes */
 .text-xs { font-size: var(--font-size-xs); }
 .text-sm { font-size: var(--font-size-sm); }
