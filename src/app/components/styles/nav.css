@@ -24,13 +24,13 @@
   flex-shrink: 0;
 }
 
-.brand-link {
+.navigation-logo-link {
   text-decoration: none;
   color: inherit;
   transition: opacity 0.3s ease;
 }
 
-.brand-link:hover {
+.navigation-logo-link:hover {
   opacity: 0.8;
 }
 

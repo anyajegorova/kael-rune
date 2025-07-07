@@ -20,7 +20,7 @@ const Nav = () => {
     <nav className="nav">
       <div className="nav-container">
         <div className="nav-brand">
-          <Link href="/" className="brand-link">
+          <Link href="/" className="navigation-logo-link">
             <span className="brand-text">KAEL RUNE</span>
           </Link>
         </div>
