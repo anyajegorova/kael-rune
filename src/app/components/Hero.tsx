@@ -16,8 +16,8 @@ const Hero = () => {
             into timeless visual narratives that speak to the soul.
           </p>
           <div className="hero-cta">
-            <a href="#work" className="cta-button">View Portfolio</a>
-            <a href="#contact" className="cta-link">Get in Touch</a>
+            <a href="/work" className="cta-button">View Portfolio</a>
+            <a href="/contact" className="cta-link">Get in Touch</a>
           </div>
         </div>
         
