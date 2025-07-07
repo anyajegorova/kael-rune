@@ -38,9 +38,10 @@
   font-size: var(--font-size-lg);
   font-weight: 400;
   letter-spacing: 0.15em;
-  color: var(--rich-black);
+  color: var(--rich-black, #111111);
   text-transform: uppercase;
-  font-family: var(--font-eb-garamond), Georgia, serif;
+  font-family: var(--font-eb-garamond, 'Georgia', serif), Georgia, serif;
+  /* Fallbacks: color and font-family in case CSS variables or custom font are missing */
 }
 
 .nav-menu {
