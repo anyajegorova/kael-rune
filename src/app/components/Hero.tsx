@@ -44,7 +44,7 @@ const Hero = () => {
             </div>
             <div className="hero-gallery-item hero-gallery-small">
               <Image
-                src="/couple.webp"
+                src="/swan.webp"
                 alt="Couple Photography"
                 width={200}
                 height={400}
@@ -53,8 +53,8 @@ const Hero = () => {
             </div>
             <div className="hero-gallery-item hero-gallery-wide">
               <Image
-                src="/boats.webp"
-                alt="Boats on Water"
+                src="/stairs.webp"
+                alt="Stairs Photography"
                 width={400}
                 height={300}
                 className="hero-gallery-image"
@@ -62,8 +62,8 @@ const Hero = () => {
             </div>
             <div className="hero-gallery-item hero-gallery-extra">
               <Image
-                src="/trees.webp"
-                alt="Trees Photography"
+                src="/swimming.webp"
+                alt="Swimming Lady"
                 width={200}
                 height={300}
                 className="hero-gallery-image"

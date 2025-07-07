@@ -174,7 +174,10 @@
     gap: var(--spacing-4xl);
     text-align: center;
   }
-  
+
+  .hero-cta {
+    justify-content: center;
+  }
   .hero-title {
     font-size: var(--font-size-4xl);
   }
