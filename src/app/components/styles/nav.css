@@ -59,6 +59,17 @@
   text-decoration: none;
   transition: all 0.3s ease;
   padding: var(--spacing-sm) 0;
+  /* Active link base style will be overridden below */
+}
+
+.nav-link.active {
+  color: var(--rich-black);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: var(--rich-black);
 }
 
 .nav-link::after {
@@ -128,6 +139,15 @@
 
 .nav.dark .nav-link {
   color: var(--ash-gray);
+}
+
+.nav.dark .nav-link.active {
+  color: var(--soft-white);
+  font-weight: 600;
+}
+
+.nav.dark .nav-link.active::after {
+  background: var(--soft-white);
 }
 
 .nav.dark .nav-link:hover {
