@@ -24,6 +24,16 @@
   flex-shrink: 0;
 }
 
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.brand-link:hover {
+  opacity: 0.8;
+}
+
 .brand-text {
   font-size: var(--font-size-lg);
   font-weight: 400;

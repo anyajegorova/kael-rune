@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import './styles/nav.css'
 
 const Nav = () => {
@@ -6,13 +7,15 @@ const Nav = () => {
     <nav className="nav">
       <div className="nav-container">
         <div className="nav-brand">
-          <span className="brand-text">KAEL RUNE</span>
+          <Link href="/" className="brand-link">
+            <span className="brand-text">KAEL RUNE</span>
+          </Link>
         </div>
         
         <div className="nav-menu">
-          <a href="#work" className="nav-link">Work</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <Link href="/work" className="nav-link">Work</Link>
+          <Link href="/about" className="nav-link">About</Link>
+          <Link href="/contact" className="nav-link">Contact</Link>
         </div>
       </div>
     </nav>
