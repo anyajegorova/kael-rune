@@ -31,8 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable}`} style={{ position: 'relative', minHeight: '100vh' }}>
         <Nav />
+        <div id="modal-root" />
         {children}
         <Footer />
       </body>

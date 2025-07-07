@@ -1,5 +1,10 @@
-import React from 'react'
+
+'use client'
+import React, { useState } from 'react'
+import GalleryModal from './GalleryModal'
+import Image from 'next/image'
 import './styles/gallery.css'
+import './styles/galleryModal.css'
 
 interface GalleryImage {
   src: string
@@ -31,17 +36,34 @@ const galleryImages: GalleryImage[] = [
   { src: '/underwater.webp', alt: 'Underwater photography' },
 ]
 
-// Function to distribute images across columns
-const distributeImages = (images: GalleryImage[], numColumns: number): GalleryImage[][] => {
-  const columns: GalleryImage[][] = Array.from({ length: numColumns }, () => [])
-  images.forEach((image: GalleryImage, index: number) => {
-    columns[index % numColumns].push(image)
+
+// Function to distribute images across columns, preserving flat index
+const distributeImages = (images: GalleryImage[], numColumns: number): { image: GalleryImage, flatIndex: number }[][] => {
+  const columns: { image: GalleryImage, flatIndex: number }[][] = Array.from({ length: numColumns }, () => [])
+  images.forEach((image, index) => {
+    columns[index % numColumns].push({ image, flatIndex: index })
   })
   return columns
 }
 
 const Gallery = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   const columns = distributeImages(galleryImages, 4)
+  const flatImages = galleryImages
+
+  const handleOpenModal = (index: number) => {
+    setCurrentIndex(index)
+    setModalOpen(true)
+  }
+
+  const handleCloseModal = () => setModalOpen(false)
+  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + flatImages.length) % flatImages.length)
+  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % flatImages.length)
+
+  // Helper to get the flat index from column/row
+
 
   return (
     <section className="gallery">
@@ -49,14 +71,19 @@ const Gallery = () => {
         <div className="gallery-row">
           {columns.map((column, columnIndex) => (
             <div key={columnIndex} className="gallery-column">
-              {column.map((image, imageIndex) => (
-                <div key={imageIndex} className="gallery-item">
+              {column.map(({ image, flatIndex }) => (
+                <div key={flatIndex} className="gallery-item" onClick={() => handleOpenModal(flatIndex)}>
                   <div className="image-wrapper">
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.alt}
                       className="gallery-image"
+                      width={400}
+                      height={300}
+                      style={{ width: '100%', height: 'auto' }}
                       loading="lazy"
+                      sizes="(max-width: 800px) 100vw, 25vw"
+                      priority={false}
                     />
                     <div className="image-overlay">
                       <span className="image-title">{image.alt}</span>
@@ -68,6 +95,14 @@ const Gallery = () => {
           ))}
         </div>
       </div>
+      <GalleryModal
+        isOpen={modalOpen}
+        imageSrc={flatImages[currentIndex]?.src || ''}
+        imageAlt={flatImages[currentIndex]?.alt || ''}
+        onClose={handleCloseModal}
+        onPrev={handlePrev}
+        onNext={handleNext}
+      />
     </section>
   )
 }
